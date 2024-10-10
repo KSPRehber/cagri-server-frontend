@@ -1,0 +1,71 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Build directories
+dist/
+build/
+public/
+
+# Cache
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vscode/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Static built files
+out/
+static/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor folders
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Compiled files
+*.o
+*.pyc
+*.pyo
+*.out
+*.class
+
+# Git generated files
+*.lock
+*.rej
+*.orig
+
+# SASS cache
+.sass-cache/
+
+# Package managers
+.pnpm-debug.log
+package-lock.json
+yarn.lock
+
+# Miscellaneous
+!.gitkeep
