@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yapma Sağlayıcısı</title>
+</head>
+
+<body>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+        import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCCF61v5knkSncSpsDmkIFSa3rw_neZGhc",
+            authDomain: "ksptr-hypercomms.firebaseapp.com",
+            projectId: "ksptr-hypercomms",
+            storageBucket: "ksptr-hypercomms.appspot.com",
+            messagingSenderId: "506253260169",
+            appId: "1:506253260169:web:12a59cbffd8ff48087dd58",
+            measurementId: "G-N7RNV6ZT46"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the URL contains an email sign-in link
+            if (isSignInWithEmailLink(auth, window.location.href)) {
+                // Get the email the user entered earlier from localStorage
+                let email = window.localStorage.getItem('emailForSignIn');
+
+                if (!email) {
+                    // If the email is not stored, ask the user to enter it
+                    email = window.prompt('Please provide your email for confirmation');
+                }
+
+                // Complete the sign-in process with the email and the sign-in link
+                signInWithEmailLink(auth, email, window.location.href)
+                    .then((result) => {
+                        // Clear the stored email, as it's no longer needed
+                        window.localStorage.removeItem('emailForSignIn');
+                        console.log('User signed in:', result.user);
+                        window.location.href = "/";
+                    })
+                    .catch((error) => {
+                        // Handle errors
+                        console.error('Error during sign-in:', error.code, error.message);
+                    });
+            }
+        });
+    </script>
+</body>
+
+</html>

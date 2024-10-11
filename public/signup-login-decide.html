@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hesap Oluşturun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="gene.jpeg">
+    <link rel="stylesheet" href="login-signup-styles.css">
+</head>
+
+<body>
+    <div class="reg-flex" id="signuppanel">
+        <p style="font-size: 35px;" class="league-spartan-400">KSP Türkiye İletişim Merkezi</p>
+        <button onclick="su()" id="submitbtn1" class="gradient-background league-spartan-400" type="submit">Hesap
+            Oluştur</button>
+        <button onclick="li()" id="submitbtn2" class="gradient-background league-spartan-400" type="submit">Giriş
+            Yap</button>
+    </div>
+    <script>
+        function su() {
+            window.location.href = "signup.html";
+        }
+        function li() {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+
+</html>

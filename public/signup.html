@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hesap Oluşturun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="gene.jpeg">
+    <link rel="stylesheet" href="login-signup-styles.css">
+    <script src="antiformreload.js"></script>
+    <script type="module" src="signup.js"></script>
+    <script type="module" src="logindirect.js"></script>
+</head>
+
+<body>
+    <video class="floaty" style="width: 200px" id="JebofFate" muted>
+        <source src="hello.webm" type="video/mp4">
+    </video>
+    <div class="reg-flex" id="signuppanel">
+        <p id="label" class="league-spartan-400">Hesap Oluşturun</p>
+        <form class="reg-flex" id="signup-form" novalidate>
+            <input type="email" id="signup-email" placeholder="ornek@mail.com" required>
+            <input type="password" id="signup-password" placeholder="83$iFr€46" required>
+            <button id="submitbtn" class="gradient-background league-spartan-400" type="submit">Hesap Oluştur</button>
+        </form>
+        <p class="league-spartan-400">Hesabınız var mı? <a class="league-spartan-400" href="login.html">Giriş Yapın.</a></p>
+        <p id="error-message" class="league-spartan-400">null</p>
+    </div>
+    
+</body>
+
+</html>

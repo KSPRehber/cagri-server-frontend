@@ -1,0 +1,140 @@
+body {
+  background-image: url(bg1.webp);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.reg-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+#signingoogle {
+  border-radius: 20px;
+  width: 50%;
+}
+#signuppanel {
+  background-color: silver;
+  width: 400px;
+  max-height: 600px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.league-spartan-400 {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+#label {
+  font-size: 30px;
+}
+input {
+  border-color: transparent;
+  border-radius: 5px;
+  width: 80%;
+  height: 30px;
+  text-align: center;
+}
+#signup-form {
+  width: 100%;
+}
+button,
+.decisionbtn {
+  width: 70%;
+  height: 40px;
+  border: transparent;
+  border-radius: 5px;
+  color: white;
+  font-size: large;
+  flex-direction: row !important;
+}
+.gradient-background {
+  background: linear-gradient(
+    270deg,
+    #0000ff,
+    #800080,
+    #0000ff
+  ); /* Blue to purple back to blue */
+  background-size: 200% 200%; /* Larger background to allow continuous movement */
+  animation: gradientAnimation 5s ease infinite; /* Adjust timing for smooth cycling */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: -20% 50%;
+  }
+  50% {
+    background-position: 120% 50%;
+  }
+  100% {
+    background-position: -20% 50%;
+  }
+}
+
+.floaty {
+  position: relative;
+  animation: float 15s infinite ease-in-out;
+  animation: randomRotate 30s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(5px, -5px);
+  }
+  50% {
+    transform: translate(-5px, 5px);
+  }
+  75% {
+    transform: translate(5px, 5px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes randomRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+a {
+  color: rgb(168, 0, 0);
+  text-decoration: none;
+}
+
+#error-message {
+  color: red;
+  display: none;
+}
+
+img {
+  height: 20px;
+}
+
+p {
+  margin: 0px;
+}
