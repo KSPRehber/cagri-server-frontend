@@ -12,7 +12,6 @@ bower_components/
 # Build directories
 dist/
 build/
-public/
 
 # Cache
 .cache/
