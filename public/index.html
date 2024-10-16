@@ -5,8 +5,24 @@
   <title>KSP Türkiye İletişim Merkezi</title>
   <link rel="icon" href="gene.jpeg" type="image/x-icon">
   <script src="indexuserdetector.js" type="module"></script>
+  <script src="switch.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index-styles.css">
 </head>
 <body>
-  
+  <div class="reg-flex" id="galswitchpanel">
+    <label class="switch">
+      <input type="checkbox" id="toggleSwitch">
+      <span class="slider round">
+        <span class="switch-text oswald-400">Chat</span>
+      </span>
+    </label>
+  </div>
+  <div id="pages">
+    <iframe src="chat.html" frameborder="0"></iframe>
+    <iframe src="gal.html" frameborder="0"></iframe>
+  </div>
 </body>
 </html>

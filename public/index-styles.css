@@ -1,0 +1,276 @@
+body {
+  background-color: rgb(26, 26, 26);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0px;
+}
+.reg-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#galswitchpanel {
+  height: 50px;
+  width: 100%;
+  background-color: rgb(15, 15, 15);
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #850000;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #00851d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(115px);
+  -ms-transform: translateX(115px);
+  transform: translateX(115px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+  user-select: none;
+  font-size: large;
+}
+
+.oswald-400 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#pages {
+  opacity: 0.8;
+  background-color: #ccc;
+  position: fixed;
+  width: 200%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+#pages iframe {
+  width: 50%; /* Each iframe takes up 50% of the container */
+  height: 100%;
+  border: none;
+  flex-shrink: 0;
+}
+
+#galbody {
+  background-color: #850000;
+}
+
+#chatbody {
+  flex-direction: row;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+html, body {
+    height: calc(100vh); /* Set height 50px less than the full viewport height */
+    margin: 0;
+    padding: 0;
+}
+.grecaptcha-badge {
+    /* Move it to the top right corner */
+    position: fixed;
+    bottom: auto;
+    top: 10px;
+    right: 10px;
+    left: auto;
+    z-index: 1000;
+    height: 50px;
+}
+
+#channels{
+  width: 15%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start !important;
+  border-right: 2px solid rgb(10, 10, 10);
+}
+
+#messages{
+  width: 85%;
+}
+
+#channelbanner{
+  width: 100%;
+}
+
+.megaphone{
+  height: 80%;
+  aspect-ratio: 1/1;
+}
+
+.announcementchannel{
+  width: 100%;
+  height: 20px;
+  padding: 3px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 3px;
+}
+#announcements{
+  width: 100%;
+}
+.announcementchannel:hover{
+  background-color: #4e4e4e;
+}
+.textchannel:hover{
+  background-color: #4e4e4e;
+}
+.soundchannel:hover{
+  background-color: #4e4e4e;
+}
+#text-channels{
+  width: 100%;
+}
+#soundchannels{
+  width: 100%;
+}
+.textchannel{
+  width: 100%;
+  height: 20px;
+  padding: 3px;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-radius: 3px;
+}
+.soundchannel{
+  width: 100%;
+  height: 20px;
+  padding: 3px;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-radius: 3px;
+}
+p{
+  margin: 0px;
+  color: white;
+  text-align: center;
+}
+
+.open-sans-400 {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+button{
+  border-color: transparent;
+  background-color: transparent;
+  width: 100%;
+}
+
+hr{
+  background-color: #4e4e4e;
+    border: 1px solid #4e4e4e;
+    border-radius: 5px 5px 5px 5px;
+    height: 1px;
+    width: 80%;
+}
+.league-spartan-400 {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.vcp{
+  height: 300px;
+  aspect-ratio: 3/5;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column ;
+  padding: 10px;
+  border-radius: 10px;
+  gap: 17px;
+}
+.vcp img{
+  margin-top: 10px;
+  border-radius: 100%;
+  width: 80%;
+}
+.vcp p{
+  text-align: center;
+  font-size: larger;
+}
+.vcp canvas {
+      border: transparent;
+      width: 100%;
+      height: 30px;
+      background-color: transparent;
+    }

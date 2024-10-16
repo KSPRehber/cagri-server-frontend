@@ -37,32 +37,50 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         function redirectback() {
-            window.location.href = "index.html";
+            window.location.href = "login.html";
         }
-        
+
         const email = emailInput.value;
         const password = passwordInput.value
-        console.log( email, password);
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log("User signed up:", user);
-            })
-            .catch((error) => {
-                console.error("Error signing up:", error);
-                errorMessage.textContent = error.message;
-                errorMessage.style.display = 'block';
-            })
-            .finally(() => {
+        console.log(email, password);
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6Lf8NF8qAAAAANp485BwhIOKRnI7vvXwzygqmpRN', { action: 'submit' }).then(function (token) {
+                fetch('https://us-central1-ksptr-hypercomms.cloudfunctions.net/verifyCaptchaAndCreateUser', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ token, email, password })
+                })
+                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.success == true) {
+                            console.error('Error:', response);
+                            console.error('Error Message:', response.message);
+                            errorMessage.textContent = response.message;
+                            errorMessage.style.display = 'block';
+                            throw new Error(response.message);
+                        }
+                        
+                    })
+                    .then(data => console.log(data))
+                    .then(() => {
 
-                submitButton.disabled = false;
-                const video = document.getElementById("JebofFate");
-                if (video) {
-                    video.play();
-                }
-                setTimeout(redirectback, 4500);
+                        submitButton.disabled = false;
+                        const video = document.getElementById("JebofFate");
+                        if (video) {
+                            video.play();
+                        }
+                        setTimeout(redirectback, 4500);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        errorMessage.textContent = error.message;
+                        errorMessage.style.display = 'block';
+                    });
             });
-    });
-    
+            });
+        });
+
 
 });
