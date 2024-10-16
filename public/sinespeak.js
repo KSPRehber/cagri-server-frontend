@@ -56,19 +56,19 @@ navigator.mediaDevices.getUserMedia({ audio: true })
     });
 */
 // Canvas setup
-const slider = document.getElementById('slider');
-const sliderValueDisplay = document.getElementById('sliderValue');
+const slider = document.getElementById("slider");
+const sliderValueDisplay = document.getElementById("sliderValue");
 
 // Add an event listener to detect when the slider value changes
-slider.addEventListener('input', function () {
-    // Get the current value of the slider
-    const currentValue = slider.value;
+slider.addEventListener("input", function () {
+  // Get the current value of the slider
+  const currentValue = slider.value;
 
-    // Update the text displaying the current value
-    volume = currentValue;
+  // Update the text displaying the current value
+  volume = currentValue;
 });
-const canvas = document.getElementById('sineWaveCanvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("sineWaveCanvas");
+const ctx = canvas.getContext("2d");
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
 
@@ -77,33 +77,63 @@ const waveSpeed = 0.05; // Speed of the wave's movement (adjust to control the a
 
 // Get current time in seconds
 function getTimeInSeconds() {
-    return performance.now() / 1000;
+  return performance.now() / 1000;
 }
 
 function drawSineWave() {
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Clear canvas
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Clear canvas
 
-    const timeInSeconds = getTimeInSeconds();
+  const timeInSeconds = getTimeInSeconds();
 
-    // Scale amplitude properly
-    let amplitude = Math.min(volume * 2, canvasHeight / 2); // Scale amplitude based on volume
-    const frequencyInHertz = freq || 1; // Ensure freq is initialized and avoid division by 0
+  // Scale amplitude properly
+  let amplitude = Math.min(volume * 2, canvasHeight / 2); // Scale amplitude based on volume
+  const frequencyInHertz = freq || 1; // Ensure freq is initialized and avoid division by 0
 
-    ctx.beginPath();
-    ctx.moveTo(0, canvasHeight / 2); // Start point
+  ctx.beginPath();
+  ctx.moveTo(0, canvasHeight / 2); // Start point
 
-    for (let x = 0; x < canvasWidth; x++) {
-        // Formula considering time, frequency, and x value for drawing a sine wave in pixels
-        let y = canvasHeight / 2 + amplitude * Math.sin(2 * Math.PI * frequencyInHertz * (timeInSeconds + x / canvasWidth));
-        ctx.lineTo(x, y); // Draw line to next point
-    }
+  for (let x = 0; x < canvasWidth; x++) {
+    // Formula considering time, frequency, and x value for drawing a sine wave in pixels
+    let y =
+      canvasHeight / 2 +
+      amplitude *
+        Math.sin(
+          2 * Math.PI * frequencyInHertz * (timeInSeconds + x / canvasWidth)
+        );
+    ctx.lineTo(x, y); // Draw line to next point
+  }
 
-    ctx.strokeStyle = '#00FF00'; // Set color
-    ctx.lineWidth = 4; // Set line thickness
-    ctx.stroke(); // Render the wave
+  ctx.strokeStyle = "#00FF00"; // Set color
+  ctx.lineWidth = 4; // Set line thickness
+  ctx.stroke(); // Render the wave
 
-    requestAnimationFrame(drawSineWave); // Continuously call the draw function for animation
+  requestAnimationFrame(drawSineWave); // Continuously call the draw function for animation
 }
 
 // Start drawing the sine wave animation
 drawSineWave();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mutesvg = document.getElementById("mutedico");
+  const wave = document.getElementById("sineWaveCanvas");
+  let ff = false;
+
+  function mutetest() {
+    ff = !ff;
+    console.log("mute toggled to:", ff);
+    if (ff == true) {
+      mutesvg.style.display = "block";
+      wave.style.display = "none";
+    } else {
+      mutesvg.style.display = "none";
+      wave.style.display = "block";
+    }
+  }
+  mutetest();
+  mutetest();
+  document.getElementById("myCheck").addEventListener("click", mutetest);
+});
+
+
+
+

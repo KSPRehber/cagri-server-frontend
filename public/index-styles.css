@@ -270,7 +270,12 @@ hr{
 }
 .vcp canvas {
       border: transparent;
-      width: 100%;
+      width: 110%;
       height: 30px;
       background-color: transparent;
     }
+
+#mutedico{
+  border-radius: 0;
+  height: 20px;
+}
