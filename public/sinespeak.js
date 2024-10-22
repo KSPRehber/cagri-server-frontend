@@ -6,67 +6,11 @@ const analyser = audioContext.createAnalyser();
 analyser.fftSize = 2048;
 
 const dataArray = new Uint8Array(analyser.frequencyBinCount);
-let volume = 50;
+let volume = localStorage.getItem("decibelLevel");
 let freq = 5;
 
-// Get the microphone input
-/*
-navigator.mediaDevices.getUserMedia({ audio: true })
-    .then(stream => {
-        const source = audioContext.createMediaStreamSource(stream);
-        source.connect(analyser);
-
-        // Function to analyze frequency and amplitude
-        function analyzeAudio() {
-            // Get the amplitude data (volume)
-            analyser.getByteTimeDomainData(dataArray);
-
-            // Calculate average volume
-            let sum = 0;
-            for (let i = 0; i < dataArray.length; i++) {
-                sum += (dataArray[i] - 128) * (dataArray[i] - 128);
-            }
-            volume = Math.sqrt(sum / dataArray.length);
-
-            // Get the frequency data
-            analyser.getByteFrequencyData(dataArray);
-
-            // Find the peak frequency
-            let maxIndex = 0;
-            let maxValue = 0;
-            for (let i = 0; i < dataArray.length; i++) {
-                if (dataArray[i] > maxValue) {
-                    maxValue = dataArray[i];
-                    maxIndex = i;
-                }
-            }
-
-            // Convert the index to frequency
-            freq = maxIndex * audioContext.sampleRate / analyser.fftSize;
-
-            // Call this function again to continue analyzing
-            requestAnimationFrame(analyzeAudio);
-        }
-
-        // Start analyzing
-        analyzeAudio();
-    })
-    .catch(error => {
-        console.error('Error accessing the microphone:', error);
-    });
-*/
-// Canvas setup
 const slider = document.getElementById("slider");
 const sliderValueDisplay = document.getElementById("sliderValue");
-
-// Add an event listener to detect when the slider value changes
-slider.addEventListener("input", function () {
-  // Get the current value of the slider
-  const currentValue = slider.value;
-
-  // Update the text displaying the current value
-  volume = currentValue;
-});
 const canvas = document.getElementById("sineWaveCanvas");
 const ctx = canvas.getContext("2d");
 const canvasWidth = canvas.width;
@@ -113,27 +57,10 @@ function drawSineWave() {
 // Start drawing the sine wave animation
 drawSineWave();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const mutesvg = document.getElementById("mutedico");
-  const wave = document.getElementById("sineWaveCanvas");
-  let ff = false;
-
-  function mutetest() {
-    ff = !ff;
-    console.log("mute toggled to:", ff);
-    if (ff == true) {
-      mutesvg.style.display = "block";
-      wave.style.display = "none";
-    } else {
-      mutesvg.style.display = "none";
-      wave.style.display = "block";
-    }
-  }
-  mutetest();
-  mutetest();
-  document.getElementById("myCheck").addEventListener("click", mutetest);
-});
-
-
+let x;
+setInterval(() => {
+  x = localStorage.getItem("decibelLevel");
+  volume = 50 - (x * -1);
+}, 10);
 
 

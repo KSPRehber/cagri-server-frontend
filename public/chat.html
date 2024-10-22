@@ -16,6 +16,13 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index-styles.css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf8NF8qAAAAANp485BwhIOKRnI7vvXwzygqmpRN"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <script type="module" src="chat.js"></script>
+    
     <style>
         html,
         body {
@@ -69,19 +76,19 @@
                 </div>
             </button>
             <button>
-                <div class="textchannel reg-flex" id="general">
+                <div class="textchannel reg-flex" id="space">
                     <img class="megaphone" src="hashtag.svg" alt="">
                     <p class="open-sans-400">Uzay</p>
                 </div>
             </button>
             <button>
-                <div class="textchannel reg-flex" id="general">
+                <div class="textchannel reg-flex" id="gal-q">
                     <img class="megaphone" src="hashtag.svg" alt="">
                     <p class="open-sans-400">GAL-Sorular</p>
                 </div>
             </button>
             <button>
-                <div class="textchannel reg-flex" id="general">
+                <div class="textchannel reg-flex" id="gal-discussion">
                     <img class="megaphone" src="hashtag.svg" alt="">
                     <p class="open-sans-400">GAL-Tartışma</p>
                 </div>
@@ -99,7 +106,7 @@
                 </div>
             </button>
             <button>
-                <div class="textchannel reg-flex" id="meteorology">
+                <div class="textchannel reg-flex" id="art">
                     <img class="megaphone" src="hashtag.svg" alt="">
                     <p class="open-sans-400">Sanat</p>
                 </div>
@@ -111,13 +118,13 @@
                 </div>
             </button>
             <button>
-                <div class="textchannel reg-flex" id="gamescreenshots">
+                <div class="textchannel reg-flex" id="gamess">
                     <img class="megaphone" src="hashtag.svg" alt="">
                     <p class="open-sans-400">Oyun Görüntüleri</p>
                 </div>
             </button>
             <button>
-                <div class="textchannel reg-flex" id="meteorology">
+                <div class="textchannel reg-flex" id="film-book-rec">
                     <img class="megaphone" src="hashtag.svg" alt="">
                     <p class="open-sans-400">Film/Kitap Öneri</p>
                 </div>
@@ -133,40 +140,98 @@
         <hr>
         <div id="soundchannels">
             <button>
-                <div class="soundchannel reg-flex" id="generalsound">
+                <div class="soundchannel reg-flex" id="generalvoice">
                     <img class="megaphone" src="speaker.svg" alt="">
                     <p class="open-sans-400">Genel-Sohbet</p>
                 </div>
             </button>
             <button>
-                <div class="soundchannel reg-flex" id="generalsound">
+                <div class="soundchannel reg-flex" id="kspvoice">
                     <img class="megaphone" src="speaker.svg" alt="">
                     <p class="open-sans-400">KSP-Sohbet</p>
                 </div>
             </button>
             <button>
-                <div class="soundchannel reg-flex" id="generalsound">
+                <div class="soundchannel reg-flex" id="offtopicvoice">
                     <img class="megaphone" src="speaker.svg" alt="">
                     <p class="open-sans-400">Konu Dışı</p>
                 </div>
             </button>
             <button>
-                <div class="soundchannel reg-flex" id="generalsound">
+                <div class="soundchannel reg-flex" id="kscvoice">
                     <img class="megaphone" src="speaker.svg" alt="">
                     <p class="open-sans-400">KSC</p>
                 </div>
             </button>
             <button>
-                <div class="soundchannel reg-flex" id="generalsound">
+                <div class="soundchannel reg-flex" id="spacediscvoice">
                     <img class="megaphone" src="speaker.svg" alt="">
                     <p class="open-sans-400">Uzay-Tartışma</p>
                 </div>
             </button>
         </div>
     </div>
-    <div id="messages">
-        <div id="messagelist"></div>
-        <div id="messager"></div>
+    <div class="reg-flex" id="messages">
+        <div class="reg-flex unselectable" id="channelinfo">
+            <img id="cti" class="ht" src="hashtag.svg" alt="">
+            <p id="channelname" class="league-spartan-400">null</p>
+        </div>
+        <div id="messagelist">
+            <div class="message" id="">
+                <div class="messinf reg-flex unselectable">
+                    <img class="mespp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOi9JqZjRVQ2ERcxygzAAkzBZXJ6Dbb7iz0w&s" alt="">
+                    <p class="league-spartan-400 usernamemes">KSPRehber</p>
+                </div>
+                <div class="mescontent">
+                    <p class="open-sans-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, unde vel
+                        soluta veniam minima
+                        dolorum quos optio placeat natus sequi architecto ipsum reiciendis consectetur aliquam
+                        repellendus nesciunt eligendi
+                        ut fugiat!</p>
+                </div>
+
+                
+            </div>
+            <div class="message" id="">
+                <div class="messinf reg-flex unselectable">
+                    <img class="mespp"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOi9JqZjRVQ2ERcxygzAAkzBZXJ6Dbb7iz0w&s" alt="">
+                    <p class="league-spartan-400 usernamemes">KSPRehber</p>
+                </div>
+                <div class="mescontent">
+                    <p class="open-sans-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex magnam
+                        atque dolorum cum sed, unde nobis fugit dicta eveniet ducimus ipsa voluptatibus nihil
+                        placeat neque molestias expedita sint! Corrupti porro sequi ea itaque voluptates ullam ut
+                        maiores exercitationem recusandae, unde at corporis nobis laborum dignissimos eum temporibus
+                        quidem optio, sapiente eius asperiores! Debitis officia id modi facilis soluta eligendi
+                        nihil voluptate ducimus voluptates mollitia vero eos consectetur, cum accusantium magnam!
+                    </p>
+                </div>
+            </div>
+            <div class="message" id="">
+                <div class="messinf reg-flex unselectable">
+                    <img class="mespp"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOi9JqZjRVQ2ERcxygzAAkzBZXJ6Dbb7iz0w&s" alt="">
+                    <p class="league-spartan-400 usernamemes">KSPRehber</p>
+                </div>
+                <div class="mescontent">
+                    <p class="open-sans-400">hello
+                    </p>
+                </div>
+            </div>
+        </div>
+        <emoji-picker id="picker"></emoji-picker>
+        <div id="messager">
+            <div class="textarea-container">
+                <textarea id="upwardGrowTextarea" rows="1" placeholder="Mesajınızı yazın..."></textarea>
+            </div>
+            <button id="emojitoggle">
+                <p></p>
+            </button>
+            <button id="sendbutton">
+                <img id="sendbuttonimg" src="sendbuttton.png" alt="">
+            </button>
+        </div>
     </div>
 </body>
 

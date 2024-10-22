@@ -1,0 +1,160 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSPTCC-PFPUT</title>
+    <link rel="icon" href="gene.jpeg" type="image/x-icon">
+    <script src="indexuserdetector.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf8NF8qAAAAANp485BwhIOKRnI7vvXwzygqmpRN"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <style>
+        html,
+        body {
+            height: calc(100vh) !important;
+            /* Set height 50px less than the full viewport height */
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="imageInput" accept="image/*" />
+    <button id="uploadBtn">Upload</button>
+    <script type="module">
+
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js';
+            import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js';
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyCCF61v5knkSncSpsDmkIFSa3rw_neZGhc",
+                authDomain: "ksptr-hypercomms.firebaseapp.com",
+                projectId: "ksptr-hypercomms",
+                storageBucket: "ksptr-hypercomms.appspot.com",
+                messagingSenderId: "506253260169",
+                appId: "1:506253260169:web:12a59cbffd8ff48087dd58",
+                measurementId: "G-N7RNV6ZT46"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+
+            let currentUser;
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    console.log("User is signed in:", user);
+                    currentUser = user; // Set the current user once they are authenticated
+                } else {
+                    console.log("No user is signed in.");
+                    currentUser = null; // Clear the user if they are not authenticated
+                }
+            });
+
+            // Retrieve CAPTCHA token asynchronously
+            async function getcaptchatoken() {
+                return new Promise((resolve, reject) => {
+                    grecaptcha.ready(function () {
+                        grecaptcha.execute('6Lf8NF8qAAAAANp485BwhIOKRnI7vvXwzygqmpRN', { action: 'submit' }).then(function (token) {
+                            resolve(token); // Resolve the token
+                        }).catch((error) => reject(error)); // Handle error
+                    });
+                });
+            }
+
+            // Handle Upload Button Click
+            document.getElementById('uploadBtn').addEventListener('click', async () => {
+                const imageInput = document.getElementById('imageInput');
+
+                // Ensure the user has selected an image
+                if (imageInput.files && imageInput.files[0]) {
+                    const file = imageInput.files[0];
+
+                    // Convert the file to base64
+                    const base64Image = file;
+
+                    // Retrieve Firebase Auth token
+                    const firebaseAuthToken = await getFirebaseAuthToken();
+
+                    if (firebaseAuthToken) {
+                        try {
+                            // Wait for CAPTCHA token before sending the request
+                            const captchaToken = await getcaptchatoken();
+                            // Send image and tokens to the server
+                            sendRequest(captchaToken, firebaseAuthToken, base64Image);
+                        } catch (error) {
+                            console.error("Failed to retrieve CAPTCHA token:", error);
+                        }
+                    } else {
+                        console.error("User is not authenticated.");
+                    }
+                } else {
+                    alert("Please select an image.");
+                }
+            });
+
+            // Convert the selected file to a Base64 string
+            function toBase64(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = error => reject(error);
+                });
+            }
+
+            // Get Firebase Auth token for the current user
+            async function getFirebaseAuthToken() {
+                console.log(currentUser);
+                if (currentUser) {
+                    // Get the ID token of the signed-in user
+                    const token = await currentUser.getIdToken();
+                    console.log("Firebase Auth Token:", token);
+                    return token;
+                } else {
+                    console.log("No user is signed in.");
+                    return null;
+                }
+            }
+
+            // Function to send POST request with image and tokens
+            async function sendRequest(captchaToken, firebaseAuthToken, base64Image) {
+                try {
+                    const requestBody = {
+                        ctoken: captchaToken,
+                        idToken: firebaseAuthToken,
+                        img: base64Image
+                    };
+
+                    const response = await fetch("http://localhost:5001/ksptr-hypercomms/us-central1/pfpupload", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(requestBody)
+                    });
+
+                    const responseData = await response.json();
+                    console.log("Response from server:", responseData);
+                } catch (error) {
+                    console.error("Error sending request:", error);
+                }
+            }
+
+    </script>
+</body>
+
+</html>
