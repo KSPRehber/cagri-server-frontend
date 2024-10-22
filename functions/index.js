@@ -11,7 +11,7 @@ const fs = require("fs").promises;
 
 admin.initializeApp();
 const auth = admin.auth();
-
+const imgurci = "";
 // Define secret
 const csecret = defineSecret("CAPTCHA_SECRET");
 
@@ -188,7 +188,7 @@ async function uploadToImgur(imageUrl) {
       type: "base64",
     }, {
       headers: {
-        Authorization: `Client-ID ${"798bac4d1eca70e"}`,
+        Authorization: `Client-ID ${imgurci}`,
       },
     });
 
