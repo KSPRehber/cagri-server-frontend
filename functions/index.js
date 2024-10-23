@@ -78,26 +78,30 @@ let chatID = "null";
 let messagesRef = db.collection("chats").doc(chatID).collection("messages");
 
 // Example function to send a message
-function sendMessage(usermail, messageContent, reply, cid) {
+function sendMessage(usermail, messageContent, reply, cid, usern) {
   chatID = cid;
   messagesRef = db.collection("chats").doc(chatID).collection("messages");
-  messagesRef.orderBy("messageNumber", "desc").limit(1).get()
-      .then((snapshot) => {
-        let lastMessageNumber = 0; // Default if no messages exist yet
-        if (!snapshot.empty) {
-          lastMessageNumber = snapshot.docs[0].data().messageNumber;
-        }
-        const newMessageNumber = lastMessageNumber + 1;
+  messagesRef
+    .orderBy("messageNumber", "desc")
+    .limit(1)
+    .get()
+    .then((snapshot) => {
+      let lastMessageNumber = 0; // Default if no messages exist yet
+      if (!snapshot.empty) {
+        lastMessageNumber = snapshot.docs[0].data().messageNumber;
+      }
+      const newMessageNumber = lastMessageNumber + 1;
 
-        // Add the new message to Firestore
-        messagesRef.add({
-          messageNumber: newMessageNumber,
-          user: usermail,
-          message: messageContent,
-          reply: reply,
-          timestamp: admin.firestore.FieldValue.serverTimestamp(), // Use admin.firestore here
-        });
+      // Add the new message to Firestore
+      messagesRef.add({
+        messageNumber: newMessageNumber,
+        user: usermail,
+        username: usern,
+        message: messageContent,
+        reply: reply,
+        timestamp: admin.firestore.FieldValue.serverTimestamp(), // Use admin.firestore here
       });
+    });
 }
 // sendMessage("duskudarstemahmet@gmail.com", "messagetest", "null", "general");
 
@@ -106,7 +110,6 @@ exports.messageadd = functions
     .https.onRequest((req, res) => {
       cors({origin: true, allowedHeaders: "Content-Type, Authorization"})(req, res, async () => {
         const {ctoken, idToken, message, reply, chatid} = req.body;
-
         try {
         // Call the verifycaptcha function and pass createUser as the function to run
           const captchaResult = await verifycaptcha(ctoken, async () => {
@@ -115,7 +118,7 @@ exports.messageadd = functions
               admin.auth().verifyIdToken(idToken)
                   .then((decodedToken) => {
                     const email = decodedToken.email;
-                    sendMessage(email, message, reply, chatid);
+                    sendMessage(email, message, reply, chatid, null); // Remember to change null to username
                   })
                   .catch((error) => {
                     res.status(401).send("Error getting UID", error);

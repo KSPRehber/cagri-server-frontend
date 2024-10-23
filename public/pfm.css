@@ -1,0 +1,51 @@
+.userprofile {
+  width: 300px;
+  height: 400px;
+  background-color: rgb(44, 44, 44);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.upfbanner {
+  height: 70px;
+  width: 100%;
+  background-image: url("bnrtest.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+.profile-pic {
+  width: 70px;
+  height: 70px;
+  border-radius: 150%;
+  position: absolute;
+  top: 150px; /* Adjust position based on banner size */
+  left: 50%;
+  transform: translateX(-165%);
+  background: url("ppblank.svg") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: 5px solid #000000; /* Creates a border around the profile picture */
+}
+.nodrag {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    --webkit-user-drag: none;
+}
+.username{
+  border-radius: 150%;
+  position: absolute;
+  top: 30%; /* Adjust position based on banner size */
+  left: 45%;
+  transform: translateX(50%);
+}
+.userprofile hr{
+  margin-top: 15px;
+  width: 100%;
+  background-color: black;
+  border: 1px solid black;
+}

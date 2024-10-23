@@ -419,3 +419,14 @@ p{
 .message:hover{
   background-color: #4e4e4e;
 }
+#channels, #messagelist{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#channels::-webkit-scrollbar {
+  display: none;
+}
+#messagelist
+::-webkit-scrollbar {
+  display: none;
+}
