@@ -21,6 +21,43 @@ const idNameArray = [
 let messagejson = {
   general: [
     {
+      message: "Genel kanalına mesaj yazdım.",
+      messageNumber: "1",
+      reply: "null",
+      timestamp: "October 19, 2024 at 9:29:15 PM UTC+3",
+      user: "duskudarstemahmet@gmail.com",
+    },
+    {
+      message: "Mesajlar birbirinin ardınca sıralanıyorlar.",
+      messageNumber: "2",
+      reply: "null",
+      timestamp: "October 19, 2024 at 9:29:15 PM UTC+3",
+      user: "duskudarstemahmet@gmail.com",
+    },
+    {
+      message: "Ayrıca Ekran kaydırılarak mesaj geçmişine de bakabiliyoruz.",
+      messageNumber: "3",
+      reply: "null",
+      timestamp: "October 19, 2024 at 9:29:15 PM UTC+3",
+      user: "duskudarstemahmet@gmail.com",
+    },
+    {
+      message: "Lorem testi: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.",
+      messageNumber: "3",
+      reply: "null",
+      timestamp: "October 19, 2024 at 9:29:15 PM UTC+3",
+      user: "duskudarstemahmet@gmail.com",
+    },
+    {
+      message: "Lorem testi: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo optio adipisci impedit neque expedita dignissimos esse ea nemo alias, iure praesentium sit, consequuntur quaerat totam inventore! Voluptas hic accusantium similique? Explicabo, possimus aspernatur natus laborum adipisci mollitia eius maiores quibusdam soluta debitis dicta quam aliquid consectetur tenetur minus tempora.",
+      messageNumber: "3",
+      reply: "null",
+      timestamp: "October 19, 2024 at 9:29:15 PM UTC+3",
+      user: "duskudarstemahmet@gmail.com",
+    }
+  ],
+  art: [
+    {
       message: "Comm check",
       messageNumber: "1",
       reply: "null",
@@ -41,7 +78,7 @@ let messagejson = {
       timestamp: "October 19, 2024 at 9:29:15 PM UTC+3",
       user: "duskudarstemahmet@gmail.com",
     },
-  ],
+  ]
 };
 
 const parentElement = document.getElementById("messagelist");
@@ -98,8 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   function channelupd() {
     for (let i = 0; i < messageCount; i++) {
-      messageType = cc;
-      console.log(cc);
+      messageType = localStorage.getItem("currentchannel");;
+      console.log(messageType);
       const mes = parsedmessages[messageType][i].message;
       const usr = parsedmessages[messageType][i].user;
 
@@ -140,6 +177,12 @@ document.addEventListener("DOMContentLoaded", function () {
           ctind.src = "rulebook.svg";
         }
       }
+      const messages = document.querySelectorAll('.message');
+
+      // Loop through each element and remove it
+      messages.forEach(message => {
+        message.remove();
+      });
       channelupd();
     }
   });
@@ -162,6 +205,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
       channelupd();
+      const messages = document.querySelectorAll('.message');
+
+      // Loop through each element and remove it
+      messages.forEach(message => {
+        message.remove();
+      });
     }
   });
   const textarea = document.getElementById("upwardGrowTextarea");

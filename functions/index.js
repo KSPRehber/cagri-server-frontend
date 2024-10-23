@@ -82,26 +82,26 @@ function sendMessage(usermail, messageContent, reply, cid, usern) {
   chatID = cid;
   messagesRef = db.collection("chats").doc(chatID).collection("messages");
   messagesRef
-    .orderBy("messageNumber", "desc")
-    .limit(1)
-    .get()
-    .then((snapshot) => {
-      let lastMessageNumber = 0; // Default if no messages exist yet
-      if (!snapshot.empty) {
-        lastMessageNumber = snapshot.docs[0].data().messageNumber;
-      }
-      const newMessageNumber = lastMessageNumber + 1;
+      .orderBy("messageNumber", "desc")
+      .limit(1)
+      .get()
+      .then((snapshot) => {
+        let lastMessageNumber = 0; // Default if no messages exist yet
+        if (!snapshot.empty) {
+          lastMessageNumber = snapshot.docs[0].data().messageNumber;
+        }
+        const newMessageNumber = lastMessageNumber + 1;
 
-      // Add the new message to Firestore
-      messagesRef.add({
-        messageNumber: newMessageNumber,
-        user: usermail,
-        username: usern,
-        message: messageContent,
-        reply: reply,
-        timestamp: admin.firestore.FieldValue.serverTimestamp(), // Use admin.firestore here
+        // Add the new message to Firestore
+        messagesRef.add({
+          messageNumber: newMessageNumber,
+          user: usermail,
+          username: usern,
+          message: messageContent,
+          reply: reply,
+          timestamp: admin.firestore.FieldValue.serverTimestamp(), // Use admin.firestore here
+        });
       });
-    });
 }
 // sendMessage("duskudarstemahmet@gmail.com", "messagetest", "null", "general");
 
